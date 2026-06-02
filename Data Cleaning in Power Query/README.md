@@ -44,8 +44,16 @@ Before beginning the transformation process, the dataset contained multiple stru
 if [Quantity] < 0 then "Return" else "Sale"
 ```
 * Applied a Number Filter to strictly remove any rows containing a zero value in the Quantity or UnitPrice columns.
+* Handled null values in the `CustomerID` column by introducing a new `CustomerType` to separate 'Registered' and 'Guest' customers.
+
+**M Formula for CustomerType:**
+```powerquery
+if [CustomerID] = null then "Guest" else "Registered"
+```
+
 * Split the InvoiceDate column into two distinct columns (Date and Time) to establish a consistent chronological format for time-series analysis.
 * Added a new `Revenue`  column to calculate the total financial value of each row, setting the foundation for the final analysis.
+  
 **M Formula for Revenue:**
 ```powerquery
 [Quantity] * [UnitPrice]
