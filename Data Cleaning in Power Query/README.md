@@ -3,6 +3,8 @@
 ## 📖 Project Overview
 This section outlines the data cleaning phase of an analytical project using the Online Retail dataset from the TATA Data Visualization Job Simulation program. 
 
+Dataset - [Google Drive link](https://docs.google.com/spreadsheets/d/1ahoOgRCregEMb_E34YU1XSuOib3XK0as/edit?usp=sharing&ouid=105755353470221483980&rtpof=true&sd=true)
+
 Raw datasets rarely come ready for analysis. The primary objective of this phase was to construct an automated, streamlined data transformation pipeline using Excel Power Query. This approach eliminates manual, repetitive cleaning efforts, ensures consistency, and significantly improves overall workflow efficiency.
 
 ---
