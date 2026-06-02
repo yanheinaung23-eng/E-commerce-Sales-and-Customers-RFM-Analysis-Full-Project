@@ -1,13 +1,13 @@
 # Data Cleaning with Excel Power Query: Online Retail Dataset
 
-## Project Overview
+## 📖 Project Overview
 This section outlines the data cleaning phase of an analytical project using the Online Retail dataset from the TATA Data Visualization Job Simulation program. 
 
 Raw datasets rarely come ready for analysis. The primary objective of this phase was to construct an automated, streamlined data transformation pipeline using Excel Power Query. This approach eliminates manual, repetitive cleaning efforts, ensures consistency, and significantly improves overall workflow efficiency.
 
 ---
 
-## Dataset Characteristics
+## 🔍 Dataset Characteristics
 Before beginning the transformation process, the dataset contained multiple structural and quality issues that required remediation:
 * Duplicate rows across multiple dimensions.
 * Null values in the `Description` (Product Name) and `CustomerID` columns.
@@ -21,7 +21,7 @@ Before beginning the transformation process, the dataset contained multiple stru
 
 ---
 
-## Step-by-Step Data Cleaning Workflow
+## 🛠 Step-by-Step Data Cleaning Workflow
 
 ### 1. Pre-Processing 
 * Identified and removed 5,268 duplicate rows (out of 536,641 total rows) directly in Excel, ensuring all columns, including date and time stamps, were evaluated.
