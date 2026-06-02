@@ -44,4 +44,4 @@ if [Quantity] < 0 then "Return" else "Sale"
 ---
 ## Applied Steps Overview in Power Query
 
-![Alt image](
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/a3ec3312f59dabcf598f8a1b03239a69e6003d5f/Data%20Cleaning%20in%20Power%20Query/Documents/Applied%20Steps%20in%20Power%20Query.png)
