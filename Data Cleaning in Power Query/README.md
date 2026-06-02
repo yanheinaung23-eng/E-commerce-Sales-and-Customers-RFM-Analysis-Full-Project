@@ -34,7 +34,7 @@ Before beginning the transformation process, the dataset contained multiple stru
 * Applied the **Trim** function to the `Description` column to strip trailing and leading whitespaces.
 * Standardized geographic data by replacing "RSA" with "Republic of South Africa".
 * Standardized geographic data by replacing "USA" with "United States".
-* Standardized payment categories across the dataset by renaming "Transfer" to "Bank Transfer" and "Credit Card" to "Card" for cleaner downstream reporting.
+
 
 ### 3. Handling Anomalies & Feature Engineering
 * Handled negative values in the `Quantity` column by introducing a new `TransactionType` conditional column to clearly separate sales from returns. 
