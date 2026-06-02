@@ -40,3 +40,8 @@ Before beginning the transformation process, the dataset contained multiple stru
 **M Formula for TransactionType:**
 ```powerquery
 if [Quantity] < 0 then "Return" else "Sale"
+```
+---
+## Applied Steps Overview in Power Query
+
+![Alt image](
