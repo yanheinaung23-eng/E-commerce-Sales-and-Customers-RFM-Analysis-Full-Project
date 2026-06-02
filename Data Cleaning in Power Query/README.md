@@ -43,6 +43,8 @@ Before beginning the transformation process, the dataset contained multiple stru
 ```powerquery
 if [Quantity] < 0 then "Return" else "Sale"
 ```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/82f9709607001024eec3aa56b9ace5423187bb6d/Data%20Cleaning%20in%20Power%20Query/Documents/TransactionType%20M%20formula.png)
+
 * Applied a Number Filter to strictly remove any rows containing a zero value in the `Quantity` or `UnitPrice` columns.
 * Handled null values in the `CustomerID` column by introducing a new `CustomerType` to separate 'Registered' and 'Guest' customers.
 
@@ -50,6 +52,7 @@ if [Quantity] < 0 then "Return" else "Sale"
 ```powerquery
 if [CustomerID] = null then "Guest" else "Registered"
 ```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/82f9709607001024eec3aa56b9ace5423187bb6d/Data%20Cleaning%20in%20Power%20Query/Documents/CustomerType%20M%20formula.png)
 
 * Split the `InvoiceDate` column into two distinct columns (Date and Time) to establish a consistent chronological format for time-series analysis.
 * Added a new `Revenue`  column to calculate the total financial value of each row, setting the foundation for the final analysis.
@@ -58,6 +61,7 @@ if [CustomerID] = null then "Guest" else "Registered"
 ```powerquery
 [Quantity] * [UnitPrice]
 ```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/82f9709607001024eec3aa56b9ace5423187bb6d/Data%20Cleaning%20in%20Power%20Query/Documents/Revenue%20M%20formula.png)
 
 ---
 ## Applied Steps Overview in Power Query
