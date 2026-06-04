@@ -219,20 +219,21 @@ WHERE Quantity > 0;
  
 ### Step 7 — Cancelled Orders
  
-**Goal:** Quantify the volume of cancellations and check transaction type.
+**Goal:** Quantify cancellations and check transaction type.
  
 ```sql
 SELECT COUNT(*)
 FROM online_sales
 WHERE Quantity < 0;
 ```
- 
+**Finding:** Total cancelled orders: 9251
+
 ```sql
 -- Confirm transaction type categories
 SELECT DISTINCT TransactionType
 FROM online_sales;
 ```
- 
+**Finding:** Only two type - Sale | Return
 ---
  
 ### Step 8 — Date Range Validation
@@ -252,7 +253,7 @@ SELECT
   ) AS order_range_months
 FROM online_sales;
 ```
- 
+**Finding:** Start date from 2010-12-01 to end date 2011-12-09. 
  
 ---
  
