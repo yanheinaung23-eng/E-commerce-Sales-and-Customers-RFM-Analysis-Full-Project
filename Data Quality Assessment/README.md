@@ -60,7 +60,7 @@ The dataset is the **UCI Online Retail** dataset (cleaned version), loaded into 
 | `InvoiceDate` | DATETIME | Date & time of transaction |
 | `UnitPrice` | REAL | Price per unit (GBP) |
 | `Revenue` | REAL | Derived: Quantity × UnitPrice |
-| `CustomerID` | INTEGER | 5-digit customer identifier |
+| `CustomerID` | REAL | 5-digit customer identifier |
 | `Country` | TEXT | Customer's country |
 | `TransactionType` | TEXT | Categorical transaction label |
 | `CustomerType` | TEXT | Categorical customer label |
@@ -179,7 +179,17 @@ FROM (
 # Statistical summary with key percentiles
 df['Quantity'].describe(percentiles=[0.25, 0.5, 0.75, 0.9, 0.95, 0.99])
 ```
- 
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/eb6273ed76010e1afd87b6ea72afaa236a331a9a/Data%20Quality%20Assessment/Documents/Quantity%20Distribution%20Percentile.png)
+
+**Finding:** 
+* 25%: A quarter of the transactions are for a quantity of 1 or less.
+
+* 75%: 75% of all transactions are for 10 items or fewer.
+
+* 99%: 99% of the transactions involve quantities of 100 or less.
+
+> ⚠️The data is heavily skewed to the right. The average is being artificially dragged up by a small number of massive wholesale-style orders (like the 80,995 anomaly).
+
 ```sql
 -- Max, min, and average
 SELECT
