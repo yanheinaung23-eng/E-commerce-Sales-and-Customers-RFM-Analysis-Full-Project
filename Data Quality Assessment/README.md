@@ -234,6 +234,7 @@ SELECT DISTINCT TransactionType
 FROM online_sales;
 ```
 **Finding:** Only two type - Sale | Return
+
 ---
  
 ### Step 8 — Date Range Validation
@@ -268,18 +269,31 @@ SELECT
   AVG(UnitPrice) AS avg_price
 FROM online_sales;
 ```
- 
+**Finding:** max_price: 38970 | min_price: -11062.06 | avg_price: 4.6544
+
 ```python
 df['UnitPrice'].describe(percentiles=[0.25, 0.5, 0.75, 0.9, 0.95, 0.99])
 ```
- 
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/843fa9ce13682583796a61a6c5aee226d934e048/Data%20Quality%20Assessment/Documents/UnitPrice%20Distribution%20Percentile.png)
+
+**Finding:**
+* 50% (Median): Half of all items sold cost 2.10 or less.
+
+* 75%: Three-quarters of all items cost 4.13 or less.
+
+* 99%: 99% of all items in this dataset are priced at 18.00 or less.
+
+it paints a picture of a retailer selling cheap, everyday items.
+
+
 ```sql
 -- Inspect the highest unit price
 SELECT *
 FROM online_sales
 WHERE UnitPrice = 38970;
 ```
- 
+**Finding:** There is only one line and the stock code is 'M'. It could be a 'manual' entry to keep a note for the specific customer ID.
+
 ```sql
 -- Inspect negative unit prices
 SELECT *
@@ -304,12 +318,21 @@ SELECT
 FROM online_sales
 WHERE Revenue > 0;
 ```
+**Finding:** min_revenue: 0.06 | max_revenue: 168469.6 | total_sales: 10642110.8 
  
 ```python
 df['Revenue'].describe(percentiles=[0.25, 0.5, 0.75, 0.9, 0.95, 0.99])
 ```
- 
-**Why it matters:** Because `Revenue = Quantity × UnitPrice`, any negative value in either parent column produces a negative revenue row. The `WHERE Revenue > 0` filter is the standard clean baseline for all subsequent sales analysis.
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/843fa9ce13682583796a61a6c5aee226d934e048/Data%20Quality%20Assessment/Documents/Revenue%20Distribution%20Percentile.png)
+
+**Finding:**
+* 50% (Median): Half of all transactions generate 9.90 or less in revenue.
+
+* 75%: Three-quarters of all transactions generate 17.57 or less.
+
+* 99%: 99% of all transactions bring in 182.60 or less.
+
+This completely aligns with the previous findings of low quantities and low unit prices. The core business relies on a high volume of small, inexpensive purchases rather than big-ticket sales.
  
 ---
  
@@ -323,15 +346,15 @@ SELECT
   MAX(LENGTH(CAST(CustomerID AS VARCHAR))) AS max_length_customerID
 FROM online_sales;
 ```
- 
+**Finding:** min_length_customerID: 7 | max_length_customerID: 7
+
 ```sql
 -- Explore customer type classification
 SELECT DISTINCT CustomerType
 FROM online_sales;
 ```
- 
-**Why it matters:** In the original UCI dataset, a significant proportion of transactions have no `CustomerID` (guest checkouts). After cleaning, confirming all remaining IDs are 5 digits validates that the cleaning step worked correctly. This is critical for RFM analysis, which requires a stable customer identifier.
- 
+**Finding:** There is only two types - Registered | Guest.
+  
 ---
  
 ### Step 12 — Categorical Columns
@@ -344,7 +367,7 @@ SELECT DISTINCT Country
 FROM online_sales;
 ```
  
-**Why it matters:** Unexpected country entries (e.g. `"Unspecified"`, `"European Community"`) can affect geographic analysis. Enumerating them upfront allows informed decisions about inclusion or grouping.
+**Why it matters:** There are 38 countries. Detected unexpected country entries (e.g. `"Unspecified"`, `"European Community"`).
  
 ---
  
