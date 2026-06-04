@@ -106,8 +106,7 @@ SELECT
   ROUND(AVG(LENGTH(InvoiceNo)), 2) AS avg_length
 FROM online_sales;
 ```
-**Finding**
-max_length: 7 | min_length: 6 | avg_length: 6.02
+**Finding:** max_length: 7 | min_length: 6 | avg_length: 6.02
 
 ```sql
 -- Inspect records with length > 6
@@ -133,7 +132,8 @@ SELECT
   ROUND(AVG(LENGTH(StockCode)), 2) AS avg_length
 FROM online_sales;
 ```
- 
+**Finding:** max_length: 12 | min_length: 1 | avg_length: 5.09
+
 ```sql
 -- Inspect non-standard codes
 SELECT *
@@ -141,7 +141,8 @@ FROM online_sales
 WHERE LENGTH(StockCode) > 5 OR LENGTH(StockCode) < 5
 LIMIT 10;
 ```
- 
+**Finding:** Some StockCode are having more than 5 in length but very few. Detected `POST` in StockCode.
+
 ```sql
 -- Total distinct product codes
 SELECT COUNT(*)
@@ -150,9 +151,8 @@ FROM (
   FROM online_sales
 );
 ```
- 
+**Finding:** Total distinct stock codes: 3938
 
- 
 ---
  
 ### Step 5 — Description Cardinality
@@ -167,7 +167,7 @@ FROM (
 );
 ```
  
-**Finding:** `COUNT(DISTINCT Description) > COUNT(DISTINCT StockCode)`, the same product code maps to multiple description strings — often due to typos or capitalisation differences in the source data.
+**Findings:** Total distinct description: 4031 and `COUNT(DISTINCT Description) > COUNT(DISTINCT StockCode)`, the same product code maps to multiple description strings.
  
 ---
  
