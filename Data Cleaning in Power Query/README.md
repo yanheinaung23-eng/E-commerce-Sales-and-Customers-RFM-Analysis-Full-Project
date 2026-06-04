@@ -1,4 +1,4 @@
-# Data Cleaning with Excel Power Query: Online Retail Dataset
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/b725c492d3d6f05a4176708acf8bbaa3a3cc4e19/Data%20Cleaning%20in%20Power%20Query/Documents/Data%20Cleaning%20with%20Excel%20Power%20Query.png)
 
 ## 📖 Project Overview
 This section outlines the data cleaning phase of an analytical project using the Online Retail dataset from the TATA Data Visualization Job Simulation program. 
