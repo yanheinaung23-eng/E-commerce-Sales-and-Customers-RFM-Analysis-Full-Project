@@ -5,9 +5,9 @@
 ---
 ## 📋 Table of Contents
 
-- [Tools Used](#ToolsUsed)
-- [EDA Walkthrough](#EDAWalkthrough)
- - [Monthly Sales Trend](#MonthlySalesTrend)
+- [Tools Used](#Tools-Used)
+- [EDA Walkthrough](#EDA-Walkthrough)
+ - [Monthly Sales Trend](#Monthly-Sales-Trend)
  
 ## 🧰 Tools Used
  
