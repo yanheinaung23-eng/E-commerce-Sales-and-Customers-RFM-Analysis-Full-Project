@@ -3,7 +3,7 @@
 ## Award
 Tableau Viz of the Day Winner (VOTD) 🏆
 
-[Check out my dashboard](https://public.tableau.com/app/profile/yan.aung3461/viz/E-CommerceSalesandRFMDashboardTATAinternshipProject/Dashboard1)
+[Check out my dashboard here!](https://public.tableau.com/app/profile/yan.aung3461/viz/E-CommerceSalesandRFMDashboardTATAinternshipProject/Dashboard1)
 
 ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/2961787e5b917c223cefc82b6b4587cb3241dbba/Documents/Tableau%20Dashboard.png)
 
