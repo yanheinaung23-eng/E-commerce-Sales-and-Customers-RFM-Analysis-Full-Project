@@ -5,18 +5,31 @@
 ---
 ## 📋 Table of Contents
 
-- [Tools Used](#🧰-Tools-Used)
-- [EDA Walkthrough](#📊-EDA-Walkthrough)
+- [Tools Used](#Tools-Used)
+- [EDA Walkthrough](#EDA-Walkthrough)
  - [Monthly Sales Trend](#Monthly-Sales-Trend)
- 
-## 🧰 Tools Used
+ - [Monthly Order Trend](#Monthly-Order-Trend)
+ - [Monthly Active Customers Trend](#Monthly-Active-Customers-Trend)
+ - [Top 20 Products by Total Revenue](#Top-20-Products-by-Total-Revenue)
+ - [Total Revenue by Country](#Total-Revenue-by-Country)
+ - [Top 20 Customers by Total Revenue](#Top-20-Customers-by-Total-Revenue)
+ - [Total Revenue by Customer Type](#Total-Revenue-by-Customer-Type)
+ - [Top 20 Products by Total Quantity Sold](#Top-20-Products-by-Total-Quantity-Sold)
+ - [Top 20 Most Frequent Registered Customers](#Top-20-Most-Frequent-Registered-Customers)
+ - [One-Time vs Repeat Customers](#One-Time-vs-Repeat-Customers)
+ - [Top 10 Countries by Number of Customers](#Top-10-Countries-by-Number-of-Customers)
+- [Insights Summary](#Insights-Summary)
+
+---
+
+## Tools Used
  
 - **SQLite + ipython-sql** — in-notebook SQL queries via `%%sql` magic
 - **Pandas** — pulling SQL results into DataFrames
 - **Matplotlib + Seaborn** — visualisations
 ---
 
-## 📊 EDA Walkthrough
+## EDA Walkthrough
  
 ### Monthly Sales Trend
 ```python
@@ -415,7 +428,7 @@ The customer base is heavily concentrated in the United Kingdom, which accounts 
 * **International Efficiency**: Overseas buyers match only 9.7% of headcount, but markets like the Netherlands and EIRE yield massive average order values.
 
 ---
-
+*This is the part of the E-commerce Sales & Customers RFM Analysis project. Next step is to answer Stakeholders questions.*
 
 
 
