@@ -96,6 +96,7 @@ plt.tight_layout()
 plt.show()
 ```
 ***Insights***
+
 Beginning in September, sales accelerated significantly, reaching a peak of **£1.50 million** in November 2011. This pattern suggests **strong seasonality** and increased customer demand during the holiday shopping period. Same trends in orders, customers confirm the strong seasonality. The dataset contain only partial December data and the apparent decline in December should not be interpreted.
 
 
