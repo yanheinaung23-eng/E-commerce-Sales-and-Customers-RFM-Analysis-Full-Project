@@ -1,7 +1,11 @@
 
-An Exploratory Data Analysis on a real-world online retail dataset using SQL (SQLite) and Python, uncovering patterns in sales performance, product demand, and customer behaviour.
+### E-commerce Sales & Customers RFM Analysis Project — EDA
+> An Exploratory Data Analysis on a real-world online retail dataset using SQL (SQLite) and Python, uncovering patterns in sales performance, product demand, and customer behaviour.
 
 ---
+## 📋 Table of Contents
+
+- [Tools Used](#🧰 Tools Used)
  
 ## 🧰 Tools Used
  
