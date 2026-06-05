@@ -7,7 +7,7 @@
 
 - [Tools Used](#Tools-Used)
 - [EDA Walkthrough](#EDA-Walkthrough)
- - [Monthly Sales Trend](#Monthly-Sales-Trend)
+ - [Monthly Sales Trend](#Monthly--Sales--Trend)
  - [Monthly Order Trend](#Monthly-Order-Trend)
  - [Monthly Active Customers Trend](#Monthly-Active-Customers-Trend)
  - [Top 20 Products by Total Revenue](#Top-20-Products-by-Total-Revenue)
