@@ -367,30 +367,26 @@ SELECT DISTINCT Country
 FROM online_sales;
 ```
  
-**Why it matters:** There are 38 countries. Detected unexpected country entries (e.g. `"Unspecified"`, `"European Community"`).
+**Finding:** There are 38 countries. Detected unexpected country entries (e.g. `"Unspecified"`, `"European Community"`).
  
 ---
  
-## Findings Summary
+## Summary
  
-| Column | Issue Found | Action Taken |
-|---|---|---|
-| `InvoiceNo` | Prefix `C` = cancellation (length > 6) | Filter with `InvoiceNo NOT LIKE 'C%'` for order counts |
-| `StockCode` | Non-standard lengths (service/postage codes) | Noted; excluded from product-level analysis |
-| `Description` | More distinct values than StockCodes | Acknowledged (typos/capitalisation) |
-| `Quantity` | Extreme outlier ±80,995 (single event) | Retained; documented as legitimate |
-| `Quantity` | Negative values = cancellations | Filter `Quantity > 0` for sales metrics |
-| `UnitPrice` | Negative prices = bad debt adjustments | Filter `UnitPrice > 0` for revenue |
-| `UnitPrice` | Zero prices exist | Excluded from revenue calculations |
-| `Revenue` | Negative revenue from cancellations/adjustments | Filter `Revenue > 0` as clean baseline |
-| `CustomerID` | All IDs confirmed as 5-digit post-cleaning | No further action needed |
-| `Country` | `"Unspecified"` entries present | Noted for geographic analysis |
- 
-> **Clean data filter used throughout EDA:**
-> ```sql
-> WHERE Quantity > 0 AND UnitPrice > 0
-> ```
+### Key Findings
+
+- The `CustomerID` column is stored as **REAL** instead of a more appropriate **INTEGER** or **TEXT** data type.
+- Invoice numbers prefixed with **"C"** represent legitimate cancellation transactions rather than data entry errors.
+- Most `StockCode` values follow the expected 5-character format, but a small number of non-standard codes (e.g., `POST`, `M`) were identified.
+- Product descriptions are not mapped one-to-one with StockCodes, resulting in more unique descriptions than unique products.
+- Quantity, UnitPrice, and Revenue distributions are heavily right-skewed, with a small number of extreme transactions significantly influencing averages.
+- An extreme outlier was identified where a customer purchased and later cancelled **80,995 units** of a single product.
+- The dataset contains **9,251 return/cancellation transactions**, represented by negative quantities.
+- Negative unit prices were found and correspond to accounting adjustments (bad debt write-offs) rather than product sales.
+- Several zero-price transactions exist and should be reviewed before revenue analysis.
+- Customer records consist of both **Registered** and **Guest** customer types.
+- The dataset includes transactions from **38 countries**, including special categories such as `"Unspecified"` and `"European Community"`.
  
 ---
  
-*Part of the [E-commerce Sales & Customers RFM Analysis](../EDA_E_commerce_Sales_and_Customers_RFM_Analysis.ipynb) portfolio project.*
+*This is the part of the E-commerce Sales & Customers RFM Analysis project. Next step is to conduct EDA.*
