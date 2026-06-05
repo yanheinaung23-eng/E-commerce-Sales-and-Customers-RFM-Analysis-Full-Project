@@ -23,7 +23,7 @@
   - [Step 10 — Revenue Integrity](#step-10--revenue-integrity)
   - [Step 11 — CustomerID Integrity](#step-11--customerid-integrity)
   - [Step 12 — Categorical Columns](#step-12--categorical-columns)
-- [Findings Summary](#findings-summary)
+- [Summary](#summary)
 ---
  
 ## Overview
