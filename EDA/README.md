@@ -1,4 +1,4 @@
-
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/6782596e3caeabb463b1319e4d5ad7a06274954e/EDA/Documents/Exploratory%20Data%20Analysis.png)
 ### E-commerce Sales & Customers RFM Analysis Project — EDA
 > An Exploratory Data Analysis on a real-world online retail dataset using SQL (SQLite) and Python, uncovering patterns in sales performance, product demand, and customer behaviour.
 
