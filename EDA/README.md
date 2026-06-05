@@ -105,5 +105,40 @@ plt.show()
 
 Beginning in September, sales accelerated significantly, reaching a peak of **£1.50 million** in November 2011. This pattern suggests **strong seasonality** and increased customer demand during the holiday shopping period. Same trends in orders, customers confirm the strong seasonality. The dataset contain only partial December data and the apparent decline in December should not be interpreted.
 
+---
+### Top 20 Products by Total Revenue
+```python
+top_products_df = pd.read_sql_query(
+    """SELECT
+    Description,
+    ROUND(SUM(Revenue),2) AS total_revenue
+    FROM online_sales
+    GROUP BY Description
+    ORDER BY ROUND(SUM(Revenue),2) DESC
+    LIMIT 20;""",
+    conn
+)
+
+
+# Plotting the top 20 products by revenue
+plt.figure(figsize=(14, 8))
+sns.barplot(x='total_revenue', y='Description', data=top_products_df, palette='viridis')
+plt.title('Top 20 Products by Total Revenue', fontsize=16)
+plt.xlabel('Total Revenue', fontsize=12)
+plt.ylabel('Product Description', fontsize=12)
+plt.tight_layout()
+plt.show()
+```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/823867626306830bc49e3d057fa74d2ab949876b/EDA/Documents/Top%2020%20Products%20by%20Total%20Revenue.png)
+
+***Insights***
+
+* Many top selling products belong to Home Decor, Party & Celebration, Gift & Kitchenware and this suggests our customers are purchasing decorative and gifting products rather than necessities. 
+* The top product, `DOTCOM POSTAGE` generated **£206,245** and it shows shipping charges alone generated a substantial amount of revenue.
+
+---
+
+
+
 
 
