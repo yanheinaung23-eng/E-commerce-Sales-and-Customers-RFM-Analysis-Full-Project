@@ -406,6 +406,7 @@ The customer base is heavily concentrated in the United Kingdom, which accounts 
 
 * **The Whale Trap**: High revenue concentration among the top 20 buyers hints at heavy business-to-business (B2B) or wholesale reliance.
 * **Retention-business**: 70% of registered users are repeat buyers, proving excellent product-market fit and strong loyalty.
+* **International Efficiency**: Overseas buyers match only 9.7% of headcount, but markets like the Netherlands and EIRE yield massive average order values.
 
 ---
 
