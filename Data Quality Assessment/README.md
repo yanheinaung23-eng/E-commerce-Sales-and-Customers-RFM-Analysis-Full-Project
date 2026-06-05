@@ -1,5 +1,5 @@
 ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/85366179158a1ab43e68f30a72c7f45f463b232d/Data%20Quality%20Assessment/Documents/Data%20Quality%20Assessment.png)
-### E-commerce Sales & Customers — RFM Analysis Project
+### E-commerce Sales & Customers RFM Analysis Project — Data Quality Assessment
  
 > A systematic, SQL-driven data quality audit performed on the UCI Online Retail dataset before any analytical or modelling work begins.
  
