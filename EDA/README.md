@@ -39,6 +39,8 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 ```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/afd55405e504eea12b3781312fb40a6f91be59fa/EDA/Documents/Sales%20Trend.png)
+
 ### Monthly Order Trend
 ```python
 monthly_order_trend_df = pd.read_sql_query(
@@ -66,6 +68,8 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 ```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/afd55405e504eea12b3781312fb40a6f91be59fa/EDA/Documents/Orders%20Trend.png)
+
 ### Monthly Active Customers Trend
 
 ```python
@@ -95,6 +99,8 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 ```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/afd55405e504eea12b3781312fb40a6f91be59fa/EDA/Documents/Active%20Customers%20Trend.png)
+
 ***Insights***
 
 Beginning in September, sales accelerated significantly, reaching a peak of **£1.50 million** in November 2011. This pattern suggests **strong seasonality** and increased customer demand during the holiday shopping period. Same trends in orders, customers confirm the strong seasonality. The dataset contain only partial December data and the apparent decline in December should not be interpreted.
