@@ -389,6 +389,28 @@ The customer base is heavily concentrated in the United Kingdom, which accounts 
 
 ---
 
+## Insights Summary
+
+### 📊 Revenue & Seasonality
+
+* **The Holiday Spike**: Revenue explodes in September and peaks in November at £1.50 million, proving extreme holiday seasonality.
+* **UK-Dominant**: The United Kingdom drives 84% of total sales (£8.17M), holding massive home-market concentration.
+* **Hidden Logistics Value**: DOTCOM POSTAGE is the #1 revenue "product" (£206K), proving shipping fees heavily dictate cash flow.
+
+### 🛍️ Product & Catalog Performance
+
+* **Gifting & Impulse Core**: Top products favor Home Decor and Celebration items.
+* **The Power Family**: "Retrospot" themed items dominate both volume and value, highlighting your strongest brand aesthetic.
+
+### 👥 Customer Behavior & Loyalty
+
+* **The Whale Trap**: High revenue concentration among the top 20 buyers hints at heavy business-to-business (B2B) or wholesale reliance.
+* **Retention-business**: 70% of registered users are repeat buyers, proving excellent product-market fit and strong loyalty.
+
+---
+
+
+
 
 
 
