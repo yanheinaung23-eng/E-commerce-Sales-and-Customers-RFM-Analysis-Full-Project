@@ -26,9 +26,13 @@ Tableau Viz of the Day Winner (VOTD) 🏆
 ## 🔄 Analysis Workflow
 This is my step by step workflow, please view each workflow by clicking README.md link. Enjoy!
 
-| Step by Step | file |
-|---|---|
-| ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/bdf5ff1b196f917721fb1e718e015429c490fd71/Data%20Cleaning%20in%20Power%20Query/Documents/Data%20Cleaning%20with%20Excel%20Power%20Query.png) | [README.md](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/tree/bdf5ff1b196f917721fb1e718e015429c490fd71/Data%20Cleaning%20in%20Power%20Query) |
-| ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/a98c00837ee17f48274bec0710765f298ed884f6/Documents/SQL%20Environment%20Setup%20in%20Google%20Colab.png) | [README.md](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/tree/a98c00837ee17f48274bec0710765f298ed884f6/SQL%20Environment%20Setup%20in%20Google%20Colab) |
+| Step | Workflow | file |
+|---|---|---|
+| 1. | ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/bdf5ff1b196f917721fb1e718e015429c490fd71/Data%20Cleaning%20in%20Power%20Query/Documents/Data%20Cleaning%20with%20Excel%20Power%20Query.png) | [README.md](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/tree/bdf5ff1b196f917721fb1e718e015429c490fd71/Data%20Cleaning%20in%20Power%20Query) |
+| 2. | ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/a98c00837ee17f48274bec0710765f298ed884f6/Documents/SQL%20Environment%20Setup%20in%20Google%20Colab.png) | [README.md](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/tree/a98c00837ee17f48274bec0710765f298ed884f6/SQL%20Environment%20Setup%20in%20Google%20Colab) |
+| 3. | ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/b81b10604cc6865d0a60e990308eb67c76b1636e/Data%20Quality%20Assessment/Documents/Data%20Quality%20Assessment.png) | [README.md](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/tree/b81b10604cc6865d0a60e990308eb67c76b1636e/Data%20Quality%20Assessment) |
+| 4. | ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/b81b10604cc6865d0a60e990308eb67c76b1636e/EDA/Documents/Exploratory%20Data%20Analysis.png) |
+[README.md](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/tree/b81b10604cc6865d0a60e990308eb67c76b1636e/EDA) |
+| 5. | ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/afa9b1658b562bfeae6ec5b81952e3a8ee8e6600/Documents/Advanced%20Analysis%20%E2%80%94%20Answering%20Stakeholders%20Questions.png) | 👇 |
 
 
