@@ -400,6 +400,43 @@ To maximize lifetime value, we must shift focus from top-of-funnel acquisition t
 
 ---
 
+## 📊 Key Takeaways
+
+| # | Question | Core Finding | Recommendation |
+|---|---|---|---|
+| Q1 | Seasonality | International peaks in October; UK peaks in November. International defies the January slump. | Decouple UK and international campaign calendars. Use January international channels for clearance. |
+| Q2 | Revenue Risk | 84% revenue from UK — high concentration risk. Top EU markets (Netherlands, EIRE, Germany, France) drive 62% of international revenue. | Reduce UK dependency toward 70–75%. Launch country-specific EU expansion plans. |
+| Q3 | VIP Customers | Customers with R=5, F=5, M=5: active within 14 days, 149+ orders, £14,999+ spend. | Target this tier with exclusive VIP campaigns using the refined RFM query. |
+| Q4 | Retention | 68.43% overall retention, anchored by the Dec 2010 cohort. New 2011 cohorts drop sharply after Month 1. | Invest in Month 1 lifecycle marketing and Q4 win-back campaigns. |
+
+---
+
+## 📁 Data Source
+
+- **Dataset:** Online Retail II — UCI Machine Learning Repository  
+- **Program:** [TATA Data Visualisation: Empowering Business with Effective Insights](https://www.theforage.com/simulations/tata/data-visualisation-p5xo) via Forage  
+- **Period Covered:** December 2010 – December 2011  
+
+---
+
+## 🙏 Acknowledgements
+
+This project was completed as part of the **TATA Group Virtual Internship Job Simulation** hosted on [Forage](https://www.theforage.com/). Special thanks to TATA for designing a simulation that mirrors real-world stakeholder-driven analysis.
+
+---
+
+## 🤝 Let's Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE)
+[![Tableau Public](https://img.shields.io/badge/Tableau%20Public-Portfolio-E97627?style=for-the-badge&logo=tableau&logoColor=white)](https://public.tableau.com/app/profile/yan.aung3461)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yanheinaung23-eng)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
 
 
 
