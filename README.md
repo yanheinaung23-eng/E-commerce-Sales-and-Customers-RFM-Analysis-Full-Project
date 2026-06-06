@@ -208,6 +208,8 @@ plt.title('Pareto Chart of International Revenue by Country', fontsize=16)
 fig.tight_layout()
 plt.show()
 ```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/a4e46b5eac4e6cc903671c9bf67487da1b438f57/Documents/Pareto%20Chart%20of%20International%20Revenue%20by%20Country.png)
+
 #### Insights
 * The business currently faces revenue concentration risk because 84% of total sales come from the UK market. While international revenue has 71% higher AOV than UK, market is distributed across multiple countries, making it less risky than the UK dependence.
 
@@ -219,6 +221,188 @@ Netherlands, EIRE, Germany, France generating 62% of total international revenue
 * Expand into EU countries with country-specific growth plans.
 
 ---
+### Q3. We want to do exclusive VIPs marketing campaign. Identify the high-end customers based on their Recency, Frequency and Monetary.
+
+```sql
+%%sql
+
+WITH base AS
+(
+  SELECT
+    CustomerID,
+    CASE
+      WHEN Country = 'United Kingdom' THEN 'UK'
+      ELSE 'International'
+    END AS region,
+    MIN(InvoiceDate) AS first_purchase_date,
+    MAX(InvoiceDate) AS last_purchase_date,
+    ROUND(SUM(Quantity), 2) AS total_quantity,
+    COUNT(*) AS Frequency,
+    ROUND(SUM(Revenue), 2) AS Monetary
+  FROM online_sales
+  WHERE CustomerID IS NOT NULL
+  GROUP BY CustomerID, Country
+),
+max_date AS
+(
+  SELECT MAX(InvoiceDate) AS Maximum_date
+  FROM online_sales
+)
+SELECT
+    b.CustomerID,
+    b.region,
+    b.first_purchase_date,
+    b.last_purchase_date,
+    b.total_quantity,
+    -- Calculate Recency using julianday for SQLite
+    CAST(julianday(m.Maximum_date) - julianday(b.last_purchase_date) AS INTEGER) AS Recency,
+    b.Frequency,
+    b.Monetary,
+    -- R_score Calculation
+    CASE
+        WHEN (julianday(m.Maximum_date) - julianday(b.last_purchase_date)) BETWEEN 0 AND 14 THEN 5
+        WHEN (julianday(m.Maximum_date) - julianday(b.last_purchase_date)) BETWEEN 15 AND 45 THEN 4
+        WHEN (julianday(m.Maximum_date) - julianday(b.last_purchase_date)) BETWEEN 46 AND 90 THEN 3
+        WHEN (julianday(m.Maximum_date) - julianday(b.last_purchase_date)) BETWEEN 91 AND 180 THEN 2
+        ELSE 1
+    END AS R_score,
+    -- F_score Calculation
+    CASE
+        WHEN b.Frequency <= 10 THEN 1
+        WHEN b.Frequency <= 39 THEN 2
+        WHEN b.Frequency <= 89 THEN 3
+        WHEN b.Frequency <= 149 THEN 4
+        ELSE 5
+    END AS F_score,
+    -- M_score Calculation
+    CASE
+        WHEN b.Monetary <= 500 THEN 1
+        WHEN b.Monetary <= 2099 THEN 2
+        WHEN b.Monetary <= 5000 THEN 3
+        WHEN b.Monetary <= 14999 THEN 4
+        ELSE 5
+    END AS M_score
+FROM base b
+CROSS JOIN max_date m
+WHERE R_score = 5 AND F_score = 5 AND M_score = 5; -- Remove this step to get all the customer lists with different score
+```
+#### RFM Table Step by Step
+
+Calculated customers baseline RFM metrics against the dataset's maximum date using SQLite's `julianday` function, and maps those metrics onto a standardized 1-to-5 scoring system.
+ 
+ High-end status is dynamically defined by specific operational thresholds:
+  * buying within the last 14 days (Recency = 5),
+ *  placing more than 149 orders (Frequency = 5),
+ *  and spending over £14,999 (Monetary = 5).
+ 
+  By applying the final WHERE clause to filter exclusively for customers who score a perfect 5 across all three dimensions, the query isolates the most active, loyal, and highest-spending tier, providing a highly refined list of premium targets tailored perfectly for an exclusive VIP marketing campaign.
+
+---
+
+### Q4. Analyze retention rates for customers and overall repeat purchase rate.
+
+#### Overall Retention Rate
+```sql
+%%sql
+
+WITH customer_stats AS (
+    SELECT
+        CustomerID,
+        COUNT(DISTINCT strftime('%Y-%m-%d', InvoiceDate)) AS active_days
+    FROM online_sales
+    WHERE CustomerID IS NOT NULL
+    GROUP BY CustomerID
+)
+SELECT
+    COUNT(*) AS total_customers,
+    SUM(CASE WHEN active_days > 1 THEN 1 ELSE 0 END) AS retained_customers,
+    ROUND(
+        CAST(SUM(CASE WHEN active_days > 1 THEN 1 ELSE 0 END) AS FLOAT) / COUNT(*) * 100,
+        2
+    ) || '%' AS overall_retention_rate
+FROM customer_stats;
+```
+| Total_customers | Retained_customers | Overall_retention_rate |
+|---|---|---|
+| 4371 | 2991 | 68.43% |
+
+#### Customer Retention Rate Cohort Analysis
+```python
+cohort_raw = pd.read_sql_query("""
+    WITH customer_first_purchase AS (
+        SELECT CustomerID, strftime('%Y-%m', MIN(InvoiceDate)) AS cohort_month
+        FROM online_sales
+        WHERE CustomerID IS NOT NULL
+        GROUP BY CustomerID
+    ),
+    customer_activity_months AS (
+        SELECT DISTINCT CustomerID, strftime('%Y-%m', InvoiceDate) AS activity_month
+        FROM online_sales
+        WHERE CustomerID IS NOT NULL
+    ),
+    cohort_index_calc AS (
+        SELECT
+            a.CustomerID,
+            c.cohort_month,
+            (CAST(strftime('%Y', a.activity_month || '-01') AS INTEGER) - CAST(strftime('%Y', c.cohort_month || '-01') AS INTEGER)) * 12 +
+            (CAST(strftime('%m', a.activity_month || '-01') AS INTEGER) - CAST(strftime('%m', c.cohort_month || '-01') AS INTEGER)) AS cohort_index
+        FROM customer_activity_months a
+        JOIN customer_first_purchase c ON a.CustomerID = c.CustomerID
+    )
+    SELECT cohort_month, cohort_index, COUNT(DISTINCT CustomerID) AS unique_customers
+    FROM cohort_index_calc
+    GROUP BY cohort_month, cohort_index;
+""", conn)
+
+# 2. Pivot the flat table into a broad analytical matrix
+cohort_pivot = cohort_raw.pivot(index='cohort_month', columns='cohort_index', values='unique_customers')
+
+# 3. Save initial cohort sizes (Month 0) to compute percentages
+cohort_sizes = cohort_pivot.iloc[:, 0]
+
+# 4. Convert absolute user counts into relative retention rates (decimals)
+retention_matrix = cohort_pivot.divide(cohort_sizes, axis=0)
+
+# 5. Build and render the heatmap visualization
+plt.figure(figsize=(16, 10))
+plt.title('Customer Retention Rate Cohort Analysis', fontsize=16, pad=20, weight='bold')
+
+sns.heatmap(
+    data=retention_matrix,
+    annot=True,
+    fmt='.1%',              # Displays values as clean percentages (e.g., 15.4%)
+    cmap='Blues',           # Classic sequential blue grading
+    vmax=0.5,               # Caps color intensity at 50% to make subtle variations stand out
+    cbar_kws={'label': 'Retention Rate (%)'},
+    linewidths=0.5,
+    linecolor='#e2e8f0'
+)
+
+# Label formatting to match image layout
+plt.xlabel('Cohort Index (Months Passed)', fontsize=12, labelpad=12)
+plt.ylabel('Cohort Birth Month', fontsize=12, labelpad=12)
+plt.tight_layout()
+plt.show()
+```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/a4e46b5eac4e6cc903671c9bf67487da1b438f57/Documents/Customer%20Retention%20Rate%20Cohort%20Analysis.png)
+
+#### Insights
+Overall retention rate of 68.43% is primarily anchored by the exceptional long-term loyalty.
+
+ December 2010 cohort, which consistently maintains a **33%** to **40%** retention rate and spikes to **50%** by Month 11. 
+ 
+ However, there is an immediate "Month 1 Cliff" where subsequent 2011 cohorts experience a sharp drop-off into the sub-**25%** range right after acquisition.
+ 
+  Fortunately, customers who survive this initial month stabilize into a highly predictable recurring baseline (**20%** to **28%**) for the rest of their lifecycle, with explicit re-engagement surges occurring during the November holiday season.
+
+#### Recommandation
+To maximize lifetime value, we must shift focus from top-of-funnel acquisition to aggressive Month 1 lifecycle marketing, while simultaneously deploying targeted Q4 win-back campaigns to capitalize on natural seasonal purchasing habits.
+
+---
+
+
+
+
 
 
 
