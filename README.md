@@ -107,5 +107,120 @@ plt.show()
 To maximize profitability, the business must immediately decouple its strategies: target international wholesale and promotional campaigns early in the autumn, and use international channels as a high-performing clearance vehicle for excess stock every January.
 
 ---
+### Q2. Are we having revenue concentration risk? Which countries should we expand?
+
+#### Revenue concentration risk and AOV
+```python
+revenue_concentration_df = pd.read_sql_query(
+    """WITH order_summary AS (
+        SELECT
+            InvoiceNo,
+            CASE
+                WHEN Country = 'United Kingdom' THEN 'UK'
+                ELSE 'International'
+            END AS Region,
+            SUM(Revenue) AS OrderRevenue
+        FROM online_sales
+        GROUP BY InvoiceNo, Region
+    )
+
+    SELECT
+        Region,
+        ROUND(SUM(OrderRevenue), 2) AS TotalSales,
+        COUNT(DISTINCT InvoiceNo) AS TotalOrders,
+        ROUND(
+            SUM(OrderRevenue) * 1.0 /
+            COUNT(DISTINCT InvoiceNo),
+            2
+        ) AS AOV
+    FROM order_summary
+    GROUP BY Region;""",
+    conn
+)
+
+# Sort DataFrame by Region to ensure consistent color mapping
+revenue_concentration_df = revenue_concentration_df.sort_values(by='Region', ascending=True)
+colors = ['orange', 'steelblue']
+
+# Create the pie chart for TotalSales
+plt.figure(figsize=(6, 6))
+plt.pie(
+    revenue_concentration_df['TotalSales'],
+    labels=revenue_concentration_df['Region'],
+    autopct='%1.1f%%', # Format for percentage labels
+    startangle=90,
+    colors=colors
+)
+plt.title('Total Sales Distribution by Region', fontsize=16)
+plt.axis('equal')
+plt.show()
+
+# Display the data as a table
+print("\nDetailed Revenue Concentration Metrics:")
+display(revenue_concentration_df)
+```
+![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/2fda2a7092294d9cfc5ff421af18853194e52489/Documents/Total%20Sales%20Distribution%20By%20Region.png)
+
+| Region | TotalSales | TotalOrders | AOV |
+|---|---|---|---|
+| International | 1.56 million | 2405 | 648.18 |
+| UK | 8.18 million | 21393 | 381.77 |
+
+#### Pareto Chart of International Revenue by Country
+
+```python
+international_countries_revenue_df = pd.read_sql_query(
+    """SELECT
+    Country,
+    ROUND(SUM(Revenue),2) AS total_revenue
+    FROM online_sales
+    WHERE Country != 'United Kingdom'
+    GROUP BY Country
+    ORDER BY ROUND(SUM(Revenue),2) DESC;""",
+    conn
+)
+
+# Calculate cumulative percentage
+international_countries_revenue_df['cumulative_revenue'] = international_countries_revenue_df['total_revenue'].cumsum()
+international_countries_revenue_df['cumulative_percentage'] = 100 * international_countries_revenue_df['cumulative_revenue'] / international_countries_revenue_df['total_revenue'].sum()
+
+# Create the Pareto chart
+fig, ax1 = plt.subplots(figsize=(14, 8))
+
+# Bar plot for total revenue
+sns.barplot(x='Country', y='total_revenue', data=international_countries_revenue_df, ax=ax1, color='orange')
+ax1.set_xlabel('Country', fontsize=12)
+ax1.set_ylabel('Total Revenue', fontsize=12)
+ax1.tick_params(axis='x', rotation=90)
+
+# Create a second y-axis for the cumulative percentage
+ax2 = ax1.twinx()
+sns.lineplot(x='Country', y='cumulative_percentage', data=international_countries_revenue_df, ax=ax2, color='red', marker='o', sort=False)
+ax2.set_ylabel('Cumulative Percentage (%)', color='red', fontsize=12)
+ax2.tick_params(axis='y', labelcolor='red')
+ax2.set_ylim(0, 105) # Set y-limit to slightly above 100% for better visualization
+
+# Add 80% line
+ax2.axhline(80, color='red', linestyle='--', label='80% Line')
+ax2.text(len(international_countries_revenue_df)-1, 80, '80%', color='red', ha='right', va='bottom')
+
+plt.title('Pareto Chart of International Revenue by Country', fontsize=16)
+fig.tight_layout()
+plt.show()
+```
+#### Insights
+* The business currently faces revenue concentration risk because 84% of total sales come from the UK market. While international revenue has 71% higher AOV than UK, market is distributed across multiple countries, making it less risky than the UK dependence.
+
+* According to Pareto principle, the strongest expansion opportunities are:
+Netherlands, EIRE, Germany, France generating 62% of total international revenue and all countries are EU region.
+
+#### Recommandation
+* Reduce dependence on UK revenue from 84% toward 70–75%.
+* Expand into EU countries with country-specific growth plans.
+
+---
+
+
+
 
 
