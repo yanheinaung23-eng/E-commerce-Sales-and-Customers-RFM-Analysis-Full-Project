@@ -17,7 +17,7 @@
 1. [Project Overview](#-project-overview)
 2. [Award & Recognition](#-award--recognition)
 3. [Live Dashboard](#-live-dashboard)
-4. [Tech Stack](#-tech-stack)
+4. [Tech Stack](#tech-stack)
 5. [Analysis Workflow](#-analysis-workflow)
 6. [Stakeholder Questions & Analysis](#-stakeholder-questions--analysis)
    - [Q1 — Seasonality: Local vs. International Markets](#q1--seasonality-local-vs-international-markets)
@@ -62,7 +62,7 @@ This project's accompanying Tableau dashboard was awarded **Viz of the Day (VOTD
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Tool | Purpose |
 |-------|------|---------|
