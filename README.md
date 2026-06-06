@@ -69,7 +69,6 @@ This project's accompanying Tableau dashboard was awarded **Viz of the Day (VOTD
 | Data Cleaning | Microsoft Excel (Power Query) | ETL, deduplication, type casting |
 | SQL Environment | SQLite in Google Colab | In-notebook SQL querying |
 | Analysis | Python (pandas, matplotlib, seaborn) | EDA, visualisation, cohort modelling |
-| AI Assistance | Google Gemini | Analytical prompt support |
 | Visualisation | Tableau Public | Interactive dashboard & storytelling |
 
 ---
