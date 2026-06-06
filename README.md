@@ -40,7 +40,7 @@ This is my step by step workflow, please view each workflow by clicking README.m
 
 The Stakeholders are asking 4 specific questions for the future business development plans.
 
-Q1. [Does seasonality behave the same way across local and international markets?](#Q1.-Does-seasonality-behave-the-same-way-across-local-and-international-markets?)
+Q1. [Does seasonality behave the same way across local and international markets?](#Q1.)
 
 Q2. [Are we having revenue concentration risk? Which countries should we expand?](#Q2.-Are-we-having-revenue-concentration-risk?-Which-countries-should-we-expand?)
 
