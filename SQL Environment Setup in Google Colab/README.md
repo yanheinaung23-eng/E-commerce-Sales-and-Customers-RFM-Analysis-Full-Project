@@ -1,6 +1,6 @@
 ![Alt image](https://github.com/yanheinaung23-eng/E-commerce-Sales-and-Customers-RFM-Analysis-Full-Project/blob/cf97e4004578ca0bae8bfc8079f8edd946b56811/Data%20Cleaning%20in%20Power%20Query/Documents/Google%20Collab%20x%20SQLite.png)
  
-This is my step by step to how to setup the SQL Environment in Google Colab as part of E-commerce Sales and Customers RFM Analysis Full Project.
+> This is my step by step to how to setup the SQL Environment in Google Colab as part of E-commerce Sales and Customers RFM Analysis Full Project.
  
 ---
  
