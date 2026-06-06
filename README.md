@@ -39,9 +39,13 @@ This is my step by step workflow, please view each workflow by clicking README.m
 ## Answering Stakeholders Questions
 
 The Stakeholders are asking 4 specific questions for the future business development plans.
+
 Q1. [Does seasonality behave the same way across local and international markets?](#Does-seasonality-behave-the-same-way-across-local-and-international-markets?)
+
 Q2. [Are we having revenue concentration risk? Which countries should we expand?](#Are-we-having-revenue-concentration-risk?-Which-countries-should-we-expand?)
+
 Q3. [We want to do exclusive VIPs marketing campaign. Identify the high-end customers based on their Recency, Frequency and Monetary.](#We-want-to-do-exclusive-VIPs-marketing-campaign.-Identify-the-high-end-customers-based-on-their-Recency,-Frequency-and-Monetary.)
+
 Q4. [Analyze retention rates for customers and overall repeat purchase rate.](#Analyze-retention-rates-for-customers-and-overall-repeat-purchase-rate.)
 
 ---
