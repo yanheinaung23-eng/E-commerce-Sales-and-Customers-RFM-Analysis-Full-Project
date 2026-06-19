@@ -48,7 +48,7 @@ The analysis answers **four strategic questions** posed by business stakeholders
 
 ---
 
-## 🏆 Award & Recognition
+## Tableau Viz of the Day Winner (VOTD) 🏆
 
 This project's accompanying Tableau dashboard was awarded **Viz of the Day (VOTD)** by Tableau Public — a recognition given to dashboards that demonstrate exceptional design, analytical clarity, and storytelling.
 
