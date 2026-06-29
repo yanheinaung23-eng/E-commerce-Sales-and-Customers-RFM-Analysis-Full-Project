@@ -15,7 +15,7 @@
 ## 📌 Table of Contents
 
 1. [Project Overview](#-project-overview)
-2. [Award & Recognition](#-award--recognition)
+2. [Award & Recognition](#-Tableau-Viz-of-the-Day-Winner)
 3. [Live Dashboard](#-live-dashboard)
 4. [Tech Stack](#tech-stack)
 5. [Analysis Workflow](#-analysis-workflow)
